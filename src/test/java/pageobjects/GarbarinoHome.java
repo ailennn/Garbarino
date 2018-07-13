@@ -4,32 +4,28 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
 public class GarbarinoHome extends BasePage {
 
-    @FindBy(css = ".gb-menu-n1")
-    private List<WebElement> categories;
+    @FindBy(className = "gb-search-input")
+    private WebElement searchInput;
 
-    @FindBy(css = ".gb-category-submenu-list-items [href*='samsung']")
-    private WebElement samsungCategory;
+    @FindBy(css = ".gb-search .gb-search-button")
+    private WebElement searchButton;
 
     public GarbarinoHome(WebDriver driver) {
         super(driver);
         driver.get("https://www.garbarino.com");
     }
 
-    public GarbarinoHome getTelevisores(){
-        categories.get(Categories.TELEVISORES.ordinal()).click();
+    public GarbarinoHome enterProduct(String product){
+        searchInput.sendKeys(product);
         return this;
     }
 
-    public SamsungProducts getSamsung(){
-        samsungCategory.click();
-        return new SamsungProducts(getDriver());
+    public SearchResults search(){
+        searchButton.click();
+        return new SearchResults(getDriver());
     }
 
-    public enum Categories {
-        TELEVISORES, CELULARES, TECNOLOGIA, ELECTRODOMESTICOS, CASA_Y_JARDIN, SALUD_Y_BELLEZA, BEBES, DEPORTES, MAS_CATEGORIAS
-    }
+
 }

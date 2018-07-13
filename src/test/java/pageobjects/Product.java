@@ -16,4 +16,9 @@ public class Product extends BasePage{
     public String getPrice() {
         return price.getText();
     }
+
+    public ProductDetail seeProductDetails(){
+        price.click();
+        return new ProductDetail(getDriver());
+    }
 }
