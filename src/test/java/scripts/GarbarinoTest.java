@@ -1,20 +1,12 @@
 package scripts;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
-import org.testng.asserts.Assertion;
 import pageobjects.GarbarinoHome;
-import pageobjects.Product;
-import pageobjects.ProductDetail;
 import pageobjects.SearchResults;
 
-import java.util.List;
-import java.util.Optional;
-
-import static io.github.bonigarcia.wdm.WebDriverManager.*;
+import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
 import static org.testng.Assert.assertEquals;
 
 public class GarbarinoTest {
